@@ -1,0 +1,159 @@
+﻿aprenda floco :n :lado
+
+   floco_lado :n :lado
+
+   pd 120
+
+ 
+
+   floco_lado :n :lado
+
+   pd 120
+
+ 
+
+   floco_lado :n :lado
+
+   pd 120
+
+ 
+
+fim
+
+aprenda floco_lado :n :lado 
+
+ senão :n = 0 [ pf :lado ] [ 
+
+   floco_lado :n - 1 :lado / 3
+
+   pe 60
+
+   floco_lado :n - 1 :lado / 3
+
+   pd 120
+
+   floco_lado :n - 1 :lado / 3
+
+   pe 60
+
+   floco_lado :n - 1 :lado / 3
+
+ ]
+
+fim
+
+aprenda flocoanimado :id
+atribua "idtartaruga :id
+setturtle 1
+ot
+mudecl 11
+atribua "x ((sorteienúmero 1000) - 500)
+atribua "y 350
+atribua "tamanho ((sorteienúmero 140) + 10)
+atribua "velocidade ((sorteienúmero 100) + 10)
+un
+mudexy :x :y
+ul
+floco 3 ((sorteienúmero 140) + 10)
+SETTIMER 1 :velocidade  [setturtle 1
+		useborracha
+		floco 3 :tamanho
+		atribua "y :y-5
+		un
+		mudexy :x :y
+		ul
+		floco 3 :tamanho 
+		SE :y < -400 [CLEARTIMER 1 un mudexy 0 0 ul mt]
+		]
+
+fim
+
+aprenda flocoanimado2 :id
+se :estanevando [
+(setturtle :id "true)
+ot
+mudecl 11
+atribua "id :id
+se :id > 11 [atribua "id 0]
+atribua "flocoArray (item :id :flocos)
+atribua "tamanho (item 0 (:flocoArray))
+atribua "x (item 1 (:flocoArray))
+atribua "y (item 2 (:flocoArray))
+atribua "velocidade (item 3 (:flocoArray))
+un
+mudexy :x :y
+ul
+floco 3 :tamanho
+wait :velocidade
+		useborracha
+		floco 3 :tamanho
+		(setitem 2 (:flocoArray) ((item 2(:flocoArray))-(sorteienúmero 20)))
+		un
+		mudexy (item 1 (:flocoArray)) (item 2 (:flocoArray))
+		ul
+		floco 3 :tamanho 
+		SE :y < -400 [(setitem 2 (:flocoArray) 400)]
+flocoanimado2 :id+1 
+]
+fim
+
+aprenda geraArrayFlocos 
+
+atribua "floco1 (array 4 0)
+gerarFloco :floco1
+atribua "floco2 (array 4 0)
+gerarFloco :floco2
+atribua "floco3 (array 4 0)
+gerarFloco :floco3
+atribua "floco4 (array 4 0)
+gerarFloco :floco4
+atribua "floco5 (array 4 0)
+gerarFloco :floco5
+atribua "floco6 (array 4 0)
+gerarFloco :floco6
+atribua "floco7 (array 4 0)
+gerarFloco :floco7
+atribua "floco8 (array 4 0)
+gerarFloco :floco8
+atribua "floco9 (array 4 0)
+gerarFloco :floco9
+atribua "floco10 (array 4 0)
+gerarFloco :floco10
+atribua "floco11 (array 4 0)
+gerarFloco :floco11
+atribua "floco12 (array 4 0)
+gerarFloco :floco12
+
+atribua "flocos (array 12 0)
+setitem 0 :flocos :floco1
+setitem 1 :flocos :floco2
+setitem 2 :flocos :floco3
+setitem 3 :flocos :floco4
+setitem 4 :flocos :floco5
+setitem 5 :flocos :floco6
+setitem 6 :flocos :floco7
+setitem 7 :flocos :floco8
+setitem 8 :flocos :floco9
+setitem 9 :flocos :floco10
+setitem 10 :flocos :floco11
+setitem 11 :flocos :floco12
+fim
+
+aprenda gerarFloco :flocoArray
+setitem 0 :flocoArray ((sorteienúmero 140) + 10)  
+setitem 1 :flocoArray ((sorteienúmero 1000) - 500)  
+setitem 2 :flocoArray 350  
+setitem 3 :flocoArray ((sorteienúmero 5) + 1)  
+fim
+
+aprenda nevar
+atribua "estanevando "true
+geraArrayFlocos
+flocoanimado2 0
+fim
+
+aprenda pararneve
+atribua "estanevando "false
+fim
+
+atribua "estanevando "false

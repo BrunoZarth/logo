@@ -1,0 +1,32 @@
+﻿aprenda espiral_quadrada :tamanho
+pf :tamanho
+pd 90
+se :tamanho > 5 [espiral_quadrada :tamanho-5]
+fim
+
+aprenda ladrilho :lado
+repita 4 [pd 90 pf :lado]
+pt :lado/2
+pe 45
+se :lado > 5 [ladrilho (:lado / (raizq 2))]
+fim
+
+aprenda mostratudo
+un
+mudex -250
+ul
+tunel 200
+un
+mudex 0
+ul
+espiral_quadrada 200
+un
+mudex 250
+ul
+ladrilho 200
+
+aprenda tunel :tamanho
+círculo :tamanho
+se :tamanho > 5 [tunel :tamanho*0.9]
+fim
+

@@ -1,0 +1,21 @@
+﻿aprenda flor :tamanho
+repita 4 [pétala :tamanho pd 90]
+pt :tamanho
+pétala :tamanho/2
+pt :tamanho
+fim
+
+aprenda jardim :tamanho
+repita :tamanho [un
+		mudexy ((SORTEIENÚMERO 1000)-500) ((SORTEIENÚMERO 1000)-500)
+		ul
+		flor 60]
+fim
+
+aprenda pétala :tamanho
+arco2 60 :tamanho
+pe 180 + 60
+arco2 60 :tamanho
+pe 180 + 60
+fim
+
